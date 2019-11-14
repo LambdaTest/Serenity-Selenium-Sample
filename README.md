@@ -32,15 +32,15 @@
 	* You can set environment variables or update `serenity.properties` file with your [LambdaTest Username and Access Key](https://automation.lambdatest.com)
 
 ## Running your tests
-	- To run a single test, run `mvn verify -P single`
-	- To run parallel tests, run `mvn verify -P parallel`
+- To run a single test, run `mvn verify -P single`
+- To run parallel tests, run `mvn verify -P parallel`
 
 Know how many concurrent sessions needed by using our [Concurrency Test Calculator](https://www.lambdatest.com/concurrency-calculator?ref=github)
 
 
 ## Notes
-	* You can view your test results on the [LambdaTest Automate dashboard](https://automation.lambdatest.com)
-	* You can export the environment variables for the Username and Access Key of your LambdaTest account
+* You can view your test results on the [LambdaTest Automate dashboard](https://automation.lambdatest.com)
+* You can export the environment variables for the Username and Access Key of your LambdaTest account
   
 ###  Routing traffic through your local machine
  - Set tunnel value to `true` in test capabilities
@@ -55,7 +55,7 @@ Know how many concurrent sessions needed by using our [Concurrency Test Calculat
 
 ## Notes
 * You can view your test results on the [LambdaTest Automation Dashboard](https://www.automation.lambdatest.com)
-* To test on a different set of browsers, check out our [capabilities generator](https://www.lambdatest.com/capabilities-generator)
+* To test on a different set of browsers, check out our [Capabilities Generator](https://www.lambdatest.com/capabilities-generator)
 
 ## About LambdaTest
 
