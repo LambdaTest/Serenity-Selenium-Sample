@@ -1,4 +1,4 @@
-# serenity-lambdatest
+# Serenity-Selenium-Sample
 
 [Serenity](http://www.thucydides.info/docs/serenity/) Integration with LambdaTest.
 
