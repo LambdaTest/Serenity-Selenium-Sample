@@ -11,7 +11,7 @@
    * Install [Jdk 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
    
 2. LambdaTest Credentials
-   * Set LambdaTest username and access key in environment variables. It can be obtained from [LambdaTest dashboard](https://automation.lambdatest.com/)    
+   * Set LambdaTest username and access key in environment variables. It can be obtained from [LambdaTest Dashboard](https://automation.lambdatest.com/)    
     example:
    - For linux/mac
     ```
