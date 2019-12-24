@@ -1,6 +1,10 @@
 package com.lambdatest.extensions;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.PrintStream;
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -10,22 +14,49 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+import cucumber.api.java.Before;
+import gherkin.ast.ScenarioOutline;
+import cucumber.api.Scenario;
+import cucumber.api.java.After;
+import net.serenitybdd.cucumber.suiteslicing.SerenityTags;
+
 import net.serenitybdd.core.webdriver.RemoteDriver;
 import net.serenitybdd.core.webdriver.enhancers.AfterAWebdriverScenario;
 import net.serenitybdd.core.webdriver.enhancers.BeforeAWebdriverScenario;
+
 import net.thucydides.core.model.TestOutcome;
 import net.thucydides.core.util.EnvironmentVariables;
 import net.thucydides.core.webdriver.SupportedWebDriver;
 
 public class LambdaTestScenario implements AfterAWebdriverScenario, BeforeAWebdriverScenario {
 
+//	@Before
+//	public void before(ScenarioOutline sco) {
+//		sco.
+//		SerenityTags.create().tagScenarioWithBatchingInfo();
+//	}
+//	
+//	@After
+//	public void after() {
+//		SerenityTags.create().tagScenarioWithBatchingInfo();
+//	}
+
 	@Override
 	public void apply(EnvironmentVariables environmentVariables, TestOutcome testOutcome, WebDriver driver) {
 
 		if ((driver == null) || (!RemoteDriver.isARemoteDriver(driver))) {
 			return;
+
 		}
 
+		try {
+			FileOutputStream f = new FileOutputStream("logs.txt");
+			System.setOut(new PrintStream(f));
+		} catch (FileNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		System.out.println(testOutcome + "-----------" + driver);
 		try {
 			String sessionId = RemoteDriver.of(driver).getSessionId().toString();
 
@@ -59,8 +90,8 @@ public class LambdaTestScenario implements AfterAWebdriverScenario, BeforeAWebdr
 				entity = new StringEntity("{\"status_ind\":" + "\"" + result + "\"}");
 			} else {
 
-				entity = new StringEntity("{\"name\":\"" + testOutcome.getStoryTitle() + " - " + testOutcome.getTitle()
-						+ "\",\"status_ind\":" + "\"" + result + "\"}");
+				entity = new StringEntity("{\"name\":\"" + testOutcome.getTestCaseName() + testOutcome.getStoryTitle()
+						+ " - " + testOutcome.getTitle() + "\",\"status_ind\":" + "\"" + result + "\"}");
 			}
 
 			putRequest.setEntity(entity);

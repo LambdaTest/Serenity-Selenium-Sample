@@ -20,17 +20,17 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <serenity.version>2.0.48</serenity.version>
-        <serenity.maven.version>2.0.67</serenity.maven.version>
-        <serenity.cucumber.version>1.9.37</serenity.cucumber.version>
+        <serenity.version>2.0.69</serenity.version>
+        <serenity.maven.version>2.0.69</serenity.maven.version>
+        <serenity.cucumber.version>1.9.40</serenity.cucumber.version>
 
         <maven.failsafe-plugin.version>3.0.0-M3</maven.failsafe-plugin.version>
         <maven.surefire-plugin.version>3.0.0-M3</maven.surefire-plugin.version>
         <maven-enforcer-plugin.version>3.0.0-M2</maven-enforcer-plugin.version>
         <maven.compiler-plugin.version>3.8.0</maven.compiler-plugin.version>
 
-        <jetty-io.version>9.4.12.v20180830</jetty-io.version>
-        <jetty-util.version>9.4.12.v20180830</jetty-util.version>
+        <jetty-io.version>9.4.24.v20191120</jetty-io.version>
+        <jetty-util.version>9.4.24.v20191120</jetty-util.version>
 
     </properties>
 

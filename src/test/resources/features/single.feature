@@ -1,6 +1,11 @@
 Feature: Google's Search Functionality
 
-    Scenario: Can find search results
-        When I type query as "LambdaTest"
+    Scenario Outline: Can find search results <keyword>
+        When I type query as <keyword>
         And I submit
-        Then I should see title "LambdaTest - Google Search"
+        Then I should see title <keyword> - Google Search
+    Scenarios: 
+    | keyword |
+    | LambdaTest |
+    | Google |
+    | DuckDuckgo |
