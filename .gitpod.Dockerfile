@@ -10,4 +10,4 @@ USER gitpod
 #     sudo rm -rf /var/lib/apt/lists/*
 #
 # More information: https://www.gitpod.io/docs/config-docker/
-RUN mvn install
+RUN /home/gitpod/.sdkman/candidates/maven/current/bin/mvn install
