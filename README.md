@@ -196,7 +196,7 @@ You can generate capabilities for your test requirements with the help of our in
 **Step 3:** The tests can be executed in the terminal using the following command:
 
 ```bash
-mvn clean install -O verify -P single
+mvn clean install -o verify -P single
 ```
 
 ## Run Your Parallel Test Using Serenity
