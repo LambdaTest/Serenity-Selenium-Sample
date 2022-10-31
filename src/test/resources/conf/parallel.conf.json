@@ -1,0 +1,35 @@
+{
+  "server": "hub.lambdatest.com",
+  "user": "LT_USERNAME",
+  "key": "LT_ACCESS_KEY",
+  "capabilities": {
+    "browserName": "Chrome",
+    "browserVersion": "latest",
+    "LT:Options": {
+      "platformName": "Windows 10",
+      "project": "Untitled",
+      "w3c": true,
+      "plugin": "Serenity-lambdatest"
+    }
+  },
+  "environments": {
+    "chrome": {
+      "browser": "chrome"
+    },
+    "firefox": {
+      "browser": "firefox"
+    },
+    "safari": {
+      "browser": "safari",
+      "browserVersion": "16.0"
+    },
+    "ie": {
+      "browser": "Internet Explorer",
+      "browserVersion": "11",
+      "LT:Options": {
+        "platformName": "Windows 10",
+        "selenium_version": "4.1.2"
+      }
+    }
+  }
+}

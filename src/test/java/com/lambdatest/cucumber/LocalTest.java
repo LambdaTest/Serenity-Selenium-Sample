@@ -7,6 +7,6 @@ import org.junit.runner.RunWith;
 import com.lambdatest.LambdatestSerenityTest;
 
 @RunWith(CucumberWithSerenity.class)
-@CucumberOptions(features = "src/test/resources/features/single.feature")
-public class ParallelFirefoxTest extends LambdatestSerenityTest {
+@CucumberOptions(features = "src/test/resources/features/local.feature")
+public class LocalTest extends LambdatestSerenityTest {
 }

@@ -1,0 +1,18 @@
+{
+  "server": "hub.lambdatest.com",
+  "user": "LT_USERNAME",
+  "key": "LT_ACCESS_KEY",
+  "capabilities": {
+    "LT:Options": {
+      "platformName": "Windows 10",
+      "project": "Untitled",
+      "w3c": true,
+      "plugin": "Serenity-lambdatest"
+    }
+  },
+  "environments": {
+    "chrome": {
+      "browser": "chrome"
+    }
+  }
+}
