@@ -19,47 +19,16 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <serenity.version>2.0.48</serenity.version>
-        <serenity.maven.version>2.0.67</serenity.maven.version>
-        <serenity.cucumber.version>1.9.37</serenity.cucumber.version>
+        <serenity.version>3.6.16</serenity.version>
 
         <maven.failsafe-plugin.version>3.0.0-M3</maven.failsafe-plugin.version>
         <maven.surefire-plugin.version>3.0.0-M3</maven.surefire-plugin.version>
         <maven-enforcer-plugin.version>3.0.0-M2</maven-enforcer-plugin.version>
         <maven.compiler-plugin.version>3.8.0</maven.compiler-plugin.version>
 
-        <jetty-io.version>10.0.2</jetty-io.version>
-        <jetty-util.version>10.0.2</jetty-util.version>
-
     </properties>
 
-    <repositories>
-        <repository>
-            <id>serenity</id>
-            <name>bintray</name>
-            <url>http://dl.bintray.com/serenity/maven</url>
-        </repository>
-    </repositories>
-    <pluginRepositories>
-        <pluginRepository>
-            <id>serenity</id>
-            <name>bintray-plugins</name>
-            <url>http://dl.bintray.com/serenity/maven</url>
-        </pluginRepository>
-    </pluginRepositories>
-
     <dependencies>
-        <dependency>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-io</artifactId>
-            <version>${jetty-io.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-util</artifactId>
-            <version>${jetty-util.version}</version>
-        </dependency>
 
         <dependency>
             <groupId>net.serenity-bdd</groupId>
@@ -73,23 +42,13 @@
         </dependency>
         <dependency>
             <groupId>net.serenity-bdd</groupId>
-            <artifactId>serenity-rest-assured</artifactId>
-            <version>${serenity.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>net.serenity-bdd</groupId>
             <artifactId>serenity-cucumber</artifactId>
-            <version>${serenity.cucumber.version}</version>
+            <version>${serenity.version}</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
-            <version>1.6.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.codehaus.groovy</groupId>
-            <artifactId>groovy-all</artifactId>
-            <version>1.8.6</version>
+            <version>2.0.7</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
@@ -114,24 +73,6 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-enforcer-plugin</artifactId>
-                <version>${maven-enforcer-plugin.version}</version>
-                <executions>
-                    <execution>
-                        <id>enforce</id>
-                        <configuration>
-                            <rules>
-                                <requireUpperBoundDeps/>
-                            </rules>
-                        </configuration>
-                        <goals>
-                            <goal>enforce</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven.surefire-plugin.version}</version>
                 <configuration>
@@ -154,8 +95,6 @@
                     <includes>
                         <include>com/lambdatest/cucumber/SingleTest.java</include>
                     </includes>
-                    <reuseForks>true</reuseForks>
-                    <argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>
                 </configuration>
                 <executions>
                     <execution>
@@ -189,54 +128,4 @@
             </plugin>
         </plugins>
     </build>
-
-    <profiles>
-        <profile>
-            <id>single</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <artifactId>maven-failsafe-plugin</artifactId>
-                        <version>${maven.failsafe-plugin.version}</version>
-                        <configuration>
-                            <includes>
-                                <include>com/lambdatest/cucumber/SingleTest.java</include>
-                            </includes>
-                            <reuseForks>true</reuseForks>
-                            <argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>
-                            <systemPropertyVariables>
-                                <environment>single</environment>
-                                <taskID>MY_TEST_SCHEMA_${surefire.forkNumber}</taskID>
-                            </systemPropertyVariables>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-
-        <profile>
-            <id>parallel</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <artifactId>maven-failsafe-plugin</artifactId>
-                        <version>${maven.failsafe-plugin.version}</version>
-                        <configuration>
-                            <includes>
-                                <include>com/lambdatest/cucumber/Parallel*.java</include>
-                            </includes>
-                            <parallel>classes</parallel>
-                            <threadCount>10</threadCount>
-                            <forkCount>10</forkCount>
-                            <reuseForks>true</reuseForks>
-                            <argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>
-                            <systemPropertyVariables>
-                                <environment>parallel_${surefire.forkNumber}</environment>
-                            </systemPropertyVariables>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
 </project>

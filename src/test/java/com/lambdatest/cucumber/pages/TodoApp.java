@@ -1,38 +1,26 @@
 package com.lambdatest.cucumber.pages;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
-import org.openqa.selenium.support.FindBy;
-
-import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.pages.PageObject;
+import org.openqa.selenium.By;
+
+import java.util.List;
 
 @DefaultUrl("https://lambdatest.github.io/sample-todo-app/")
 public class TodoApp extends PageObject {
-    @FindBy(name = "li1")
-    WebElementFacade element1;
-    @FindBy(name = "li2")
-    WebElementFacade element2;
-    @FindBy(id = "sampletodotext")
-    WebElementFacade inputBox;
-    @FindBy(id = "addbutton")
-    WebElementFacade addButton;
-    @FindBy(xpath = "/html/body/div/div/div/ul/li[6]/span")
-    WebElementFacade newElement;
 
-    public void clickOn() {
-        element1.click();
-        element2.click();
+    private final static By LIST_ITEMS = By.cssSelector("div[ng-app='sampleApp'] li");
+
+    public void addNewElement(String newItem) {
+        $("#sampletodotext").sendKeys(newItem);
+        $("#addbutton").click();
     }
 
-    public void addNewElement(String newElem) {
-        inputBox.sendKeys(newElem);
-        addButton.click();
+    public List<String> listItems() {
+        return findAll(LIST_ITEMS).texts();
     }
 
-    public void assertEqual(String newString) {
-        String text = newElement.getText();
-        assertThat(newString).isEqualTo(text);
+    public int itemCount() {
+        return listItems().size();
     }
 }
