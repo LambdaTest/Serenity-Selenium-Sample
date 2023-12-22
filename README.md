@@ -196,7 +196,7 @@ You can generate capabilities for your test requirements with the help of our in
 **Step 3:** The tests can be executed in the terminal using the following command:
 
 ```bash
-mvn verify -P single
+mvn clean verify -P single -Denvironment=lambdatest
 ```
 
 ## Run Your Parallel Test Using Serenity
@@ -220,7 +220,7 @@ Similarly we define the class for the remaining browsers.
 To run parallel tests using Serenity, we would have to execute the below commands in the terminal:
 
 ```bash
-mvn verify -P parallel
+mvn clean verify -P parallel -Denvironment=lambdatest
 ```
 
 ## Testing Locally Hosted Or Privately Hosted Projects
