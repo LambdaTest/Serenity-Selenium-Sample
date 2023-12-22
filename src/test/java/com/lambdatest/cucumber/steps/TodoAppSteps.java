@@ -1,27 +1,28 @@
 package com.lambdatest.cucumber.steps;
 
 import com.lambdatest.cucumber.pages.TodoApp;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
-import cucumber.api.java.en.And;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class TodoAppSteps {
     TodoApp todo;
 
-    @When("^I click on checkboxes$")
-    public void search_google_for() throws Throwable {
+    @Given("I have opened the app")
+    @When("I open the app")
+    public void iOpenTheApp() {
         todo.open();
-        todo.clickOn();
     }
 
-    @And("^I add new Element \"([^\"]*)\"$")
-    public void thenSubmit(String newText) throws Throwable {
-        todo.addNewElement(newText);
+    @When("I add new item {string}")
+    public void iAddNewItem(String item) {
+        todo.addNewElement(item);
     }
 
-    @Then("^I Compare the new added element text with \"([^\"]*)\"$")
-    public void matchTitle(String matchElem) throws Throwable {
-        todo.assertEqual(matchElem);
+    @Then("I should see {int} items")
+    public void iShouldSeeItems(int expectedItems) {
+        assertThat(todo.itemCount()).isEqualTo(expectedItems);
     }
 }

@@ -35,18 +35,16 @@
 
 Before you can start performing Java automation testing with Serenity, you would need to:
 
-- Install the latest **Java development environment** i.e. **JDK 1.6 to JDK 1.8**. 
-
-- Download the latest **Selenium Client** and its **WebDriver bindings** from the [official website](https://www.selenium.dev/downloads/). Latest versions of Selenium Client and WebDriver are ideal for running your automation script on LambdaTest Selenium cloud grid.
+- Install the latest **Java development environment**, and at least **JDK 1.8**. 
 
 - Install **Maven** which supports **JUnit** framework out of the box. **Maven** can be downloaded and installed following the steps from [the official website](https://maven.apache.org/). Maven can also be installed easily on **Linux/MacOS** using [Homebrew](https://brew.sh/) package manager.
 
 ### Cloning Repo And Installing Dependencies
 
-**Step 1:** Clone the LambdaTest’s Serenity-Selenium-Sample repository and navigate to the code directory as shown below:
+**Step 1:** Clone the Serenity-Selenium-Sample repository and navigate to the code directory as shown below:
 
 ```bash
-git clone https://github.com/LambdaTest/Serenity-Selenium-Sample
+git clone https://github.com/serenity-bdd/Serenity-Selenium-Sample.git
 cd Serenity-Selenium-Sample
 ```
 
@@ -58,7 +56,8 @@ mvn versions:display-dependency-updates
 
 ### Setting Up Your Authentication
 
-Make sure you have your LambdaTest credentials with you to run test automation scripts. You can get these credentials from the [LambdaTest Automation Dashboard](https://automation.lambdatest.com/build?utm_source=github&utm_medium=repo&utm_campaign=serenity-selenium-sample) or by your [LambdaTest Profile](https://accounts.lambdatest.com/login?utm_source=github&utm_medium=repo&utm_campaign=serenity-selenium-sample).
+Make sure you have your LambdaTest credentials with you to run test automation scripts. 
+You can get these credentials from the [LambdaTest Automation Dashboard](https://automation.lambdatest.com/build?utm_source=github&utm_medium=repo&utm_campaign=serenity-selenium-sample) or by your [LambdaTest Profile](https://accounts.lambdatest.com/login?utm_source=github&utm_medium=repo&utm_campaign=serenity-selenium-sample).
 
 **Step 2:** Set LambdaTest **Username** and **Access Key** in environment variables.
 
@@ -85,7 +84,7 @@ Feature: Google's Search Functionality
         Then I should see title "LambdaTest - Google Search"
 ```
 
-Following below is the `GooglePage.java` file for the above Test Case Scenario.
+The page object  the `GooglePage.java` file for the above Test Case Scenario.
 
 ```java title="GooglePage.java"
 package com.lambdatest.cucumber.pages;
@@ -110,7 +109,8 @@ public class GooglePage extends PageObject {
     public void searchForString(String searchString) {
         search.sendKeys(searchString);
     }
- public void submitForm() throws Exception {
+    
+    public void submitForm() throws Exception {
         searchButton.click();
         Thread.sleep(5000);
     }
