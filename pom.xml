@@ -25,7 +25,7 @@
 
         <maven.failsafe-plugin.version>3.0.0-M3</maven.failsafe-plugin.version>
         <maven.surefire-plugin.version>3.0.0-M3</maven.surefire-plugin.version>
-        <maven-enforcer-plugin.version>3.0.0-M2</maven-enforcer-plugin.version>
+        <maven-enforcer-plugin.version>3.0.0-M3</maven-enforcer-plugin.version>
         <maven.compiler-plugin.version>3.8.0</maven.compiler-plugin.version>
 
         <jetty-io.version>10.0.2</jetty-io.version>
@@ -33,7 +33,7 @@
 
     </properties>
 
-    <repositories>
+    <!-- <repositories>
         <repository>
             <id>serenity</id>
             <name>bintray</name>
@@ -46,10 +46,10 @@
             <name>bintray-plugins</name>
             <url>http://dl.bintray.com/serenity/maven</url>
         </pluginRepository>
-    </pluginRepositories>
+    </pluginRepositories> -->
 
     <dependencies>
-        <dependency>
+        <!-- <dependency>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-io</artifactId>
             <version>${jetty-io.version}</version>
@@ -59,7 +59,7 @@
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-util</artifactId>
             <version>${jetty-util.version}</version>
-        </dependency>
+        </dependency> -->
 
         <dependency>
             <groupId>net.serenity-bdd</groupId>
@@ -86,11 +86,11 @@
             <artifactId>slf4j-simple</artifactId>
             <version>1.6.1</version>
         </dependency>
-        <dependency>
+        <!-- <dependency>
             <groupId>org.codehaus.groovy</groupId>
             <artifactId>groovy-all</artifactId>
             <version>1.8.6</version>
-        </dependency>
+        </dependency> -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -112,7 +112,7 @@
 
     <build>
         <plugins>
-            <plugin>
+            <!-- <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-enforcer-plugin</artifactId>
                 <version>${maven-enforcer-plugin.version}</version>
@@ -129,7 +129,7 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin> -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
