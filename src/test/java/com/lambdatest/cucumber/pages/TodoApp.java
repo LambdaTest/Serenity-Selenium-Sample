@@ -1,7 +1,6 @@
 package com.lambdatest.cucumber.pages;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
+import org.junit.Assert;
 import org.openqa.selenium.support.FindBy;
 
 import net.serenitybdd.core.pages.WebElementFacade;
@@ -33,6 +32,6 @@ public class TodoApp extends PageObject {
 
     public void assertEqual(String newString) {
         String text = newElement.getText();
-        assertThat(newString).isEqualTo(text);
+        Assert.assertEquals(newString,text);
     }
 }
