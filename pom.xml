@@ -11,7 +11,7 @@
     <name>Serenity LambdaTest Integration</name>
 
     <properties>
-        <java.version>1.8</java.version>
+        <java.version>21</java.version>
         <java.source.version>${java.version}</java.source.version>
         <java.target.version>${java.version}</java.target.version>
         <maven.version>3.9.6</maven.version>
@@ -19,11 +19,11 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <serenity.version>2.0.48</serenity.version>
-        <serenity.cucumber.version>1.9.37</serenity.cucumber.version>
+        <serenity.version>4.3.0</serenity.version>
+        <serenity.cucumber.version>4.3.0</serenity.cucumber.version>
 
-        <maven.failsafe-plugin.version>3.0.0-M3</maven.failsafe-plugin.version>
-        <maven.surefire-plugin.version>3.0.0-M3</maven.surefire-plugin.version>
+        <maven.failsafe-plugin.version>3.2.5</maven.failsafe-plugin.version>
+        <maven.surefire-plugin.version>3.2.5</maven.surefire-plugin.version>
 
     </properties>
 
@@ -45,9 +45,9 @@
             <version>${serenity.cucumber.version}</version>
         </dependency>
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.13.1</version>
+            <groupId>org.junit.vintage</groupId>
+            <artifactId>junit-vintage-engine</artifactId>
+            <version>5.10.2</version> <!-- allows old JUnit4 tests to run -->
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -71,7 +71,7 @@
                         <include>com/lambdatest/cucumber/SingleTest.java</include>
                     </includes>
                     <reuseForks>true</reuseForks>
-                    <argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>
+                    <argLine>-Xmx1024m</argLine>
                 </configuration>
                 <executions>
                     <execution>
@@ -98,7 +98,7 @@
                                 <include>com/lambdatest/cucumber/SingleTest.java</include>
                             </includes>
                             <reuseForks>true</reuseForks>
-                            <argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>
+                            <argLine>-Xmx1024m</argLine>
                             <systemPropertyVariables>
                                 <environment>single</environment>
                                 <taskID>MY_TEST_SCHEMA_${surefire.forkNumber}</taskID>
@@ -124,7 +124,7 @@
                             <threadCount>10</threadCount>
                             <forkCount>10</forkCount>
                             <reuseForks>true</reuseForks>
-                            <argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>
+                            <argLine>-Xmx1024m</argLine>
                             <systemPropertyVariables>
                                 <environment>parallel_${surefire.forkNumber}</environment>
                             </systemPropertyVariables>
