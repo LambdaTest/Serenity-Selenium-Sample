@@ -7,77 +7,76 @@ import java.net.URISyntaxException;
 import org.apache.http.client.methods.HttpPatch;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
 
 import net.serenitybdd.core.webdriver.RemoteDriver;
 import net.serenitybdd.core.webdriver.enhancers.AfterAWebdriverScenario;
 import net.serenitybdd.core.webdriver.enhancers.BeforeAWebdriverScenario;
-import net.thucydides.core.model.TestOutcome;
-import net.thucydides.core.util.EnvironmentVariables;
+import net.thucydides.model.domain.TestOutcome;
+import net.thucydides.model.util.EnvironmentVariables;
 import net.thucydides.core.webdriver.SupportedWebDriver;
 
 public class LambdaTestScenario implements AfterAWebdriverScenario, BeforeAWebdriverScenario {
 
-	@Override
-	public void apply(EnvironmentVariables environmentVariables, TestOutcome testOutcome, WebDriver driver) {
+    // 🧠 Resolve the "unrelated defaults" conflict
+    @Override
+    public boolean isActivated(EnvironmentVariables environmentVariables) {
+        return true; // always active, or add your own condition
+    }
 
-		if ((driver == null) || (!RemoteDriver.isARemoteDriver(driver))) {
-			return;
-		}
+    // ✅ Updated for BeforeAWebdriverScenario (pre-driver setup)
+    @Override
+    public MutableCapabilities apply(EnvironmentVariables environmentVariables,
+                                     SupportedWebDriver driver,
+                                     TestOutcome testOutcome,
+                                     MutableCapabilities capabilities) {
+        capabilities.setCapability("name", testOutcome.getStoryTitle() + " - " + testOutcome.getTitle());
+        return capabilities;
+    }
 
-		try {
-			String sessionId = RemoteDriver.of(driver).getSessionId().toString();
+    // ✅ Updated for AfterAWebdriverScenario (post-test update)
+    @Override
+    public void apply(EnvironmentVariables environmentVariables,
+                      TestOutcome testOutcome,
+                      WebDriver driver) {
 
-			String username = System.getenv("LT_USERNAME");
-			if (username == null) {
-				username = (String) environmentVariables.getProperty("lt.user");
-			}
+        if (driver == null || !RemoteDriver.isARemoteDriver(driver)) {
+            return;
+        }
 
-			String accessKey = System.getenv("LT_ACCESS_KEY");
-			if (accessKey == null) {
-				accessKey = (String) environmentVariables.getProperty("lt.key");
-			}
+        try {
+            String sessionId = RemoteDriver.of(driver).getSessionId().toString();
 
-			String environment = System.getProperty("environment");
+            String username = System.getenv("LT_USERNAME");
+            if (username == null) {
+                username = environmentVariables.getProperty("lt.user");
+            }
 
-			URI uri = new URI("https://" + username + ":" + accessKey
-					+ "@api.lambdatest.com/automation/api/v1/sessions/" + sessionId);
-			HttpPatch putRequest = new HttpPatch(uri);
+            String accessKey = System.getenv("LT_ACCESS_KEY");
+            if (accessKey == null) {
+                accessKey = environmentVariables.getProperty("lt.key");
+            }
 
-			String result = "completed";
-			if (testOutcome.isSuccess()) {
-				result = "passed";
-			} else if (testOutcome.isFailure() || testOutcome.isError() || testOutcome.isCompromised()) {
-				result = "failed";
-			}
+            URI uri = new URI("https://" + username + ":" + accessKey +
+                    "@api.lambdatest.com/automation/api/v1/sessions/" + sessionId);
 
-			StringEntity entity;
+            HttpPatch patchRequest = new HttpPatch(uri);
 
-			if (environment != null && environmentVariables.getKeys().contains(".name")) {
+            String result = testOutcome.isSuccess() ? "passed"
+                    : (testOutcome.isFailure() || testOutcome.isError() || testOutcome.isCompromised())
+                    ? "failed" : "completed";
 
-				entity = new StringEntity("{\"status_ind\":" + "\"" + result + "\"}");
-			} else {
+            StringEntity entity = new StringEntity(
+                    "{\"name\":\"" + testOutcome.getStoryTitle() + " - " + testOutcome.getTitle() +
+                            "\",\"status_ind\":\"" + result + "\"}"
+            );
 
-				entity = new StringEntity("{\"name\":\"" + testOutcome.getStoryTitle() + " - " + testOutcome.getTitle()
-						+ "\",\"status_ind\":" + "\"" + result + "\"}");
-			}
+            patchRequest.setEntity(entity);
+            HttpClientBuilder.create().build().execute(patchRequest);
 
-			putRequest.setEntity(entity);
-
-			HttpClientBuilder.create().build().execute(putRequest);
-
-		} catch (URISyntaxException | IOException e) {
-			e.printStackTrace();
-		}
-	}
-
-	@Override
-	public DesiredCapabilities apply(EnvironmentVariables environmentVariables, SupportedWebDriver driver,
-			TestOutcome testOutcome, DesiredCapabilities capabilities) {
-
-		capabilities.setCapability("name", testOutcome.getStoryTitle() + " - " + testOutcome.getTitle());
-		return capabilities;
-
-	}
+        } catch (URISyntaxException | IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
