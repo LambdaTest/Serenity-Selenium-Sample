@@ -1,26 +1,26 @@
-# Run Selenium Tests With Serenity On LambdaTest
+# Run Selenium Tests With Serenity — TestMu AI (Formerly LambdaTest)
 
 ![serenity](https://user-images.githubusercontent.com/70570645/171951371-2dd646a7-bae6-4bba-9dbf-d542d786683d.png)
 
 
 <p align="center">
-  <a href="https://www.lambdatest.com/blog/?utm_source=github&utm_medium=repo&utm_campaign=serenity-selenium-sample" target="_bank">Blog</a>
+  <a href="https://www.testmuai.com/blog/?utm_source=github&utm_medium=repo&utm_campaign=serenity-selenium-sample" target="_bank">Blog</a>
   &nbsp; &#8901; &nbsp;
-  <a href="https://www.lambdatest.com/support/docs/?utm_source=github&utm_medium=repo&utm_campaign=serenity-selenium-sample" target="_bank">Docs</a>
+  <a href="https://www.testmuai.com/support/docs/?utm_source=github&utm_medium=repo&utm_campaign=serenity-selenium-sample" target="_bank">Docs</a>
   &nbsp; &#8901; &nbsp;
-  <a href="https://www.lambdatest.com/learning-hub/?utm_source=github&utm_medium=repo&utm_campaign=serenity-selenium-sample" target="_bank">Learning Hub</a>
+  <a href="https://www.testmuai.com/learning-hub/?utm_source=github&utm_medium=repo&utm_campaign=serenity-selenium-sample" target="_bank">Learning Hub</a>
   &nbsp; &#8901; &nbsp;
-  <a href="https://www.lambdatest.com/newsletter/?utm_source=github&utm_medium=repo&utm_campaign=serenity-selenium-sample" target="_bank">Newsletter</a>
+  <a href="https://www.testmuai.com/newsletter/?utm_source=github&utm_medium=repo&utm_campaign=serenity-selenium-sample" target="_bank">Newsletter</a>
   &nbsp; &#8901; &nbsp;
-  <a href="https://www.lambdatest.com/certifications/?utm_source=github&utm_medium=repo&utm_campaign=serenity-selenium-sample" target="_bank">Certifications</a>
+  <a href="https://www.testmuai.com/certifications/?utm_source=github&utm_medium=repo&utm_campaign=serenity-selenium-sample" target="_bank">Certifications</a>
   &nbsp; &#8901; &nbsp;
-  <a href="https://www.youtube.com/c/LambdaTest" target="_bank">YouTube</a>
+  <a href="https://www.youtube.com/@TestMuAI" target="_bank">YouTube</a>
 </p>
 &emsp;
 &emsp;
 &emsp;
 
-*Learn how to configure and run your Java automation testing scripts on LambdaTest platform using Serenity.*
+*Learn how to configure and run your Java automation testing scripts on TestMu AI platform using Serenity.*
 
 [<img height="58" width="200" src="https://user-images.githubusercontent.com/70570645/171866795-52c11b49-0728-4229-b073-4b704209ddde.png">](https://accounts.lambdatest.com/register?utm_source=github&utm_medium=repo&utm_campaign=serenity-selenium-sample)
 
@@ -37,13 +37,13 @@ Before you can start performing Java automation testing with Serenity, you would
 
 - Install the latest **Java development environment** i.e. **JDK 1.6 to JDK 1.8**. 
 
-- Download the latest **Selenium Client** and its **WebDriver bindings** from the [official website](https://www.selenium.dev/downloads/). Latest versions of Selenium Client and WebDriver are ideal for running your automation script on LambdaTest Selenium cloud grid.
+- Download the latest **Selenium Client** and its **WebDriver bindings** from the [official website](https://www.selenium.dev/downloads/). Latest versions of Selenium Client and WebDriver are ideal for running your automation script on TestMu AI Selenium cloud grid.
 
 - Install **Maven** which supports **JUnit** framework out of the box. **Maven** can be downloaded and installed following the steps from [the official website](https://maven.apache.org/). Maven can also be installed easily on **Linux/MacOS** using [Homebrew](https://brew.sh/) package manager.
 
 ### Cloning Repo And Installing Dependencies
 
-**Step 1:** Clone the LambdaTest’s Serenity-Selenium-Sample repository and navigate to the code directory as shown below:
+**Step 1:** Clone the TestMu AI’s Serenity-Selenium-Sample repository and navigate to the code directory as shown below:
 
 ```bash
 git clone https://github.com/LambdaTest/Serenity-Selenium-Sample
@@ -58,9 +58,9 @@ mvn versions:display-dependency-updates
 
 ### Setting Up Your Authentication
 
-Make sure you have your LambdaTest credentials with you to run test automation scripts. You can get these credentials from the [LambdaTest Automation Dashboard](https://automation.lambdatest.com/build?utm_source=github&utm_medium=repo&utm_campaign=serenity-selenium-sample) or by your [LambdaTest Profile](https://accounts.lambdatest.com/login?utm_source=github&utm_medium=repo&utm_campaign=serenity-selenium-sample).
+Make sure you have your TestMu AI credentials with you to run test automation scripts. You can get these credentials from the [TestMu AI Automation Dashboard](https://automation.lambdatest.com/build?utm_source=github&utm_medium=repo&utm_campaign=serenity-selenium-sample) or by your [TestMu AI Profile](https://accounts.lambdatest.com/login?utm_source=github&utm_medium=repo&utm_campaign=serenity-selenium-sample).
 
-**Step 2:** Set LambdaTest **Username** and **Access Key** in environment variables.
+**Step 2:** Set TestMu AI **Username** and **Access Key** in environment variables.
 
 * For **Linux/macOS**:
   
@@ -121,7 +121,7 @@ public class GooglePage extends PageObject {
 }
 ```
 
-Below is the `LambdaTestSerenityDriver.java` file that shows the integration of Serenity with LambdaTest.
+Below is the `TestMu AISerenityDriver.java` file that shows the integration of Serenity with LambdaTest.
 
 ```java title="LambdaTestSerenityDriver.java"
 package com.lambdatest;
@@ -188,7 +188,7 @@ public class LambdaTestSerenityDriver implements DriverSource {
 }
 ```
 
-You can generate capabilities for your test requirements with the help of our inbuilt [Desired Capability Generator](https://www.lambdatest.com/capabilities-generator/?utm_source=github&utm_medium=repo&utm_campaign=serenity-selenium-sample).
+You can generate capabilities for your test requirements with the help of our inbuilt [Desired Capability Generator](https://www.testmuai.com/capabilities-generator/?utm_source=github&utm_medium=repo&utm_campaign=serenity-selenium-sample).
 
 
 ### Executing the Test
@@ -225,16 +225,16 @@ mvn verify -P parallel
 
 ## Testing Locally Hosted Or Privately Hosted Projects
 
-You can test your locally hosted or privately hosted projects with LambdaTest Selenium grid using LambdaTest Tunnel. All you would have to do is set up an SSH tunnel using tunnel and pass toggle `tunnel = True` via desired capabilities. LambdaTest Tunnel establishes a secure SSH protocol based tunnel that allows you in testing your locally hosted or privately hosted pages, even before they are live.
+You can test your locally hosted or privately hosted projects with TestMu AI Selenium grid using TestMu AI Tunnel. All you would have to do is set up an SSH tunnel using tunnel and pass toggle `tunnel = True` via desired capabilities. TestMu AI Tunnel establishes a secure SSH protocol based tunnel that allows you in testing your locally hosted or privately hosted pages, even before they are live.
 
-Refer our [LambdaTest Tunnel documentation](https://www.lambdatest.com/support/docs/testing-locally-hosted-pages/?utm_source=github&utm_medium=repo&utm_campaign=serenity-selenium-sample) for more information.
+Refer our [TestMu AI Tunnel documentation](https://www.testmuai.com/support/docs/testing-locally-hosted-pages/?utm_source=github&utm_medium=repo&utm_campaign=serenity-selenium-sample) for more information.
 
-Here’s how you can establish LambdaTest Tunnel.
+Here’s how you can establish TestMu AI Tunnel.
 
 Download the binary file of:
-* [LambdaTest Tunnel for Windows](https://downloads.lambdatest.com/tunnel/v3/windows/64bit/LT_Windows.zip)
-* [LambdaTest Tunnel for macOS](https://downloads.lambdatest.com/tunnel/v3/mac/64bit/LT_Mac.zip)
-* [LambdaTest Tunnel for Linux](https://downloads.lambdatest.com/tunnel/v3/linux/64bit/LT_Linux.zip)
+* [TestMu AI Tunnel for Windows](https://downloads.lambdatest.com/tunnel/v3/windows/64bit/LT_Windows.zip)
+* [TestMu AI Tunnel for macOS](https://downloads.lambdatest.com/tunnel/v3/mac/64bit/LT_Mac.zip)
+* [TestMu AI Tunnel for Linux](https://downloads.lambdatest.com/tunnel/v3/linux/64bit/LT_Linux.zip)
 
 Open command prompt and navigate to the binary folder.
 
@@ -248,7 +248,7 @@ So if your user name is lambdatest@example.com and key is 123456, the command wo
 ```bash
 LT -user lambdatest@example.com -key 123456
 ```
-Once you are able to connect **LambdaTest Tunnel** successfully, you would just have to pass on tunnel capabilities in the code shown below :
+Once you are able to connect **TestMu AI Tunnel** successfully, you would just have to pass on tunnel capabilities in the code shown below :
 
 **Tunnel Capability**
 
@@ -260,43 +260,35 @@ DesiredCapabilities capabilities = new DesiredCapabilities();
 ## Documentation & Resources :books:
 
       
-Visit the following links to learn more about LambdaTest's features, setup and tutorials around test automation, mobile app testing, responsive testing, and manual testing.
+Visit the following links to learn more about TestMu AI's features, setup and tutorials around test automation, mobile app testing, responsive testing, and manual testing.
 
-* [LambdaTest Documentation](https://www.lambdatest.com/support/docs/?utm_source=github&utm_medium=repo&utm_campaign=serenity-selenium-sample)
-* [LambdaTest Blog](https://www.lambdatest.com/blog/?utm_source=github&utm_medium=repo&utm_campaign=serenity-selenium-sample)
-* [LambdaTest Learning Hub](https://www.lambdatest.com/learning-hub/?utm_source=github&utm_medium=repo&utm_campaign=serenity-selenium-sample)    
+* [TestMu AI Documentation](https://www.testmuai.com/support/docs/?utm_source=github&utm_medium=repo&utm_campaign=serenity-selenium-sample)
+* [TestMu AI Blog](https://www.testmuai.com/blog/?utm_source=github&utm_medium=repo&utm_campaign=serenity-selenium-sample)
+* [TestMu AI Learning Hub](https://www.testmuai.com/learning-hub/?utm_source=github&utm_medium=repo&utm_campaign=serenity-selenium-sample)    
 
-## LambdaTest Community :busts_in_silhouette:
+## TestMu AI Community :busts_in_silhouette:
 
-The [LambdaTest Community](https://community.lambdatest.com/?utm_source=github&utm_medium=repo&utm_campaign=serenity-selenium-sample) allows people to interact with tech enthusiasts. Connect, ask questions, and learn from tech-savvy people. Discuss best practises in web development, testing, and DevOps with professionals from across the globe 🌎
+The [TestMu AI Community](https://community.testmuai.com/?utm_source=github&utm_medium=repo&utm_campaign=serenity-selenium-sample) allows people to interact with tech enthusiasts. Connect, ask questions, and learn from tech-savvy people. Discuss best practises in web development, testing, and DevOps with professionals from across the globe 🌎
 
-## What's New At LambdaTest ❓
+## What's New At TestMu AI ❓
 
-To stay updated with the latest features and product add-ons, visit [Changelog](https://changelog.lambdatest.com/) 
-      
-## About LambdaTest
+To stay updated with the latest features and product add-ons, visit [Changelog](https://changelog.lambdatest.com/)
 
-[LambdaTest](https://www.lambdatest.com/?utm_source=github&utm_medium=repo&utm_campaign=serenity-selenium-sample) is a leading test execution and orchestration platform that is fast, reliable, scalable, and secure. It allows users to run both manual and automated testing of web and mobile apps across 3000+ different browsers, operating systems, and real device combinations. Using LambdaTest, businesses can ensure quicker developer feedback and hence achieve faster go to market. Over 500 enterprises and 1 Million + users across 130+ countries rely on LambdaTest for their testing needs.    
+## 🚀 [LambdaTest is Now TestMu AI](https://www.testmuai.com/lambdatest-is-now-testmuai/)
 
-### Features
+👋 Welcome to TestMu AI, the next evolution of LambdaTest. As of January 2026, LambdaTest has officially rebranded to TestMu AI. We have evolved from a cross-browser testing cloud into a unified, AI-native quality engineering platform designed for the modern DevOps era.
 
-* Run Selenium, Cypress, Puppeteer, Playwright, and Appium automation tests across 3000+ real desktop and mobile environments.
-* Real-time cross browser testing on 3000+ environments.
-* Test on Real device cloud
-* Blazing fast test automation with HyperExecute
-* Accelerate testing, shorten job times and get faster feedback on code changes with Test At Scale.
-* Smart Visual Regression Testing on cloud
-* 120+ third-party integrations with your favorite tool for CI/CD, Project Management, Codeless Automation, and more.
-* Automated Screenshot testing across multiple browsers in a single click.
-* Local testing of web and mobile apps.
-* Online Accessibility Testing across 3000+ desktop and mobile browsers, browser versions, and operating systems.
-* Geolocation testing of web and mobile apps across 53+ countries.
-* LT Browser - for responsive testing across 50+ pre-installed mobile, tablets, desktop, and laptop viewports
+Whether you have been part of the LambdaTest community for years or are just discovering TestMu AI, our mission remains the same: to help you ship faster with high-scale test execution, autonomous testing, and deep quality analytics.
 
-    
-[<img height="58" width="200" src="https://user-images.githubusercontent.com/70570645/171866795-52c11b49-0728-4229-b073-4b704209ddde.png">](https://accounts.lambdatest.com/register?utm_source=github&utm_medium=repo&utm_campaign=serenity-selenium-sample)
+**🔄 Our Rebrand Journey**
 
-## We are here to help you :headphones:
+We chose the name TestMu AI to reflect our shift towards intelligent, autonomous testing. While our identity has changed, our core technology and commitment to the testing community stay the same.
 
-* Got a query? we are available 24x7 to help. [Contact Us](mailto:support@lambdatest.com)
-* For more info, visit - [LambdaTest](https://www.lambdatest.com/?utm_source=github&utm_medium=repo&utm_campaign=serenity-selenium-sample)
+**✨ Specialties**
+
+- 🤖 AI-Native Test Execution (Formerly LambdaTest)
+- ⚡ Autonomous Test Automation
+- 🌐 Cross-Browser & Mobile Testing
+- 📊 Unified Quality Intelligence
+
+👉 Find [LambdaTest's New Home](https://www.testmuai.com/).
