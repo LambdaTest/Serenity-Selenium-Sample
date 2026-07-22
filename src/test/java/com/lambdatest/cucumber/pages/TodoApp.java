@@ -6,10 +6,10 @@ import org.openqa.selenium.By;
 
 import java.util.List;
 
-@DefaultUrl("https://lambdatest.github.io/sample-todo-app/")
+@DefaultUrl("https://www.testmuai.com/selenium-playground/todo-app/")
 public class TodoApp extends PageObject {
 
-    private final static By LIST_ITEMS = By.cssSelector("div[ng-app='sampleApp'] li");
+    private final static By LIST_ITEMS = By.cssSelector("li.todo-item");
 
     public void addNewElement(String newItem) {
         $("#sampletodotext").sendKeys(newItem);
